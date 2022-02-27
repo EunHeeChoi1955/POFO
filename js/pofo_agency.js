@@ -102,7 +102,7 @@
                   swipeEnd = event.clientX;
                   if( swipestart-swipeEnd > 0 ){//다음슬라이드
                      clearInterval(setId);
-                     mainSlide();
+                     nextCount();
                   }
                   if( swipestart-swipeEnd < 0 ){//이전슬라이드
                      clearInterval(setId);
@@ -111,6 +111,8 @@
 
                }
             });
+            //4-2. 타이머를 컨트롤 타이머 만들어서 5초 동안 터치가 없으면 다시
+
             
             //5. 마우스 드레그 앤 드롭
 
