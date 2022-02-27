@@ -53,12 +53,19 @@
             }); 
          },
          section1:function(){
-            const slideWrap = $('.slide-wrap');
-            let cnt=0;
+            const slideWrap      = $('.slide-wrap');
+            const slideContainer = $('.slide-container');
+            let   cnt            = 0;
+            let   setId          = 0;
+            let   swipestart     = null;
+            let   swipeEnd       = null;
+
+
             //1.메인슬라이드 함수
             function mainSlide(){               
                slideWrap.stop().animate( {left:(-1903*cnt)},600, function(){
-                  if(cnt>2){cnt=0}
+                  if(cnt>2){cnt=0}  //다음슬라이드 롤링
+                  if(cnt<0){cnt=2}  //이전슬라이드 롤링
                   slideWrap.stop().animate( {left:(-1903*cnt)},0)
                });
             }
@@ -68,15 +75,47 @@
                cnt++;
                mainSlide();
             }
-
+            //2.이전카운트 함수
+            function prevCount(){
+               cnt--;
+               mainSlide();
+            }
             //3.자동타이머 함수
             function autoTimer(){
-               setInterval(nextCount, 3000);
+               setId = setInterval(nextCount, 3000);
+               console.log(setId);
             }
 
             autoTimer();
             
+            //4. 마우스 터치 스와이프
+            slideContainer.on({
+               mousedown: function(event){
+                  //터치스와이프 시작 포지션
+                  console.log("터치 시작");
+                  console.log(event.clientX);
+                  swipestart = event.clientX;
+               },
+               mouseup:function(event){
+                  console.log("터치 종료");
+                  console.log(event.clientX);
+                  swipeEnd = event.clientX;
+                  if( swipestart-swipeEnd > 0 ){//다음슬라이드
+                     clearInterval(setId);
+                     mainSlide();
+                  }
+                  if( swipestart-swipeEnd < 0 ){//이전슬라이드
+                     clearInterval(setId);
+                     prevCount();
+                  }
 
+               }
+            });
+            
+            //5. 마우스 드레그 앤 드롭
+
+
+            //6. 모바일 손가락 핑거 드래드 앤 드롭(반응형)
 
 
 
