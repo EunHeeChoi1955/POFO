@@ -6,7 +6,29 @@
 #skip li a:focus {font-size:20px;line-height:50px;}
 
 #wrap {z-index:1;position:relative;}
-#wrap #header {z-index:3;position:fixed;top:0;left:0;width:100%;height:72px;background:rgba(255,255,255, 1);}
+#wrap #header {z-index:3;position:fixed;top:0;left:0;width:100%;height:72px;background:rgba(255,255,255, 1); transition: all .6s; box-shadow: 0 2px 5px rgba(0,0,0, .15);}
+/* 패럴럭스 이벤트 */
+/* 1. 윈도우 스크롤값이 아래로 내려가면 헤더 영역이 위로 부드럽게 미끄러지듯이 숨겨지고  */
+#wrap #header.addParalaxUp { animation:headerParalaxUp .6s ease-in-out forwards;   }
+@keyframes headerParalaxUp {
+    0%   { transform:translateY(0); }
+    100% { transform:translateY(-80px); }
+}
+/* 2. 윈도우 스크롤값이 위로 올라가면 헤더 영역이 아래로 부드럽게 미끄러지듯이 나타난다  */
+/* 2-1. 스크롤탑값이 맨위에는 헤더영역 높이가 72px */
+#wrap #header.addParalaxDown72 { animation:headerParalaxDown72 .5s ease-in-out forwards;   }
+@keyframes headerParalaxDown72 {
+    0%   { transform:translateY(-80px); height: 72px; } 
+    100% { transform:translateY(0); height: 72px; }
+}
+/* 2-2. 스크롤탑값이 맨위가 아니면 헤더영역 높이가 60px */
+#wrap #header.addParalaxDown60 { animation:headerParalaxDown60 .5s ease-in-out forwards;   }
+@keyframes headerParalaxDown60 {
+    0%   { transform:translateY(-70px); height: 60px;}
+    100% { transform:translateY(0);height: 60px; }
+}
+
+
 #wrap #header .container {position:relative;width:100%;max-width:1170px;height:100%;margin:0 auto;}
 #wrap #header .container .gap {margin:0 15px;width:auto;height:100%;}
 #wrap #header .container .gap .wrap {width:100%;height:100%; display: flex; flex-flow:row nowrap;}
@@ -22,9 +44,9 @@
 #wrap #header .container .gap .wrap .right-box #nav {height:100%; }
 #wrap #header .container .gap .wrap .right-box #nav>ul {display: flex; flex-flow:row nowrap;height:100%; }
 #wrap #header .container .gap .wrap .right-box #nav>ul> li {margin: 0 20px; height:100%; }
-#wrap #header .container .gap .wrap .right-box #nav>ul> li > a {font-size: 12px;font-weight: 600; color:rgba(0, 0, 0, .6); font-family:'Montserrat';display: block; line-height:70px; transition: all .3s;position: relative;}
+#wrap #header .container .gap .wrap .right-box #nav>ul> li > a {font-size: 12px;font-weight: 600; color:rgba(0, 0, 0, .6); font-family:'Montserrat';  transition: all .3s;height:100%;position: relative;display:flex;align-items: center;}
 #wrap #header .container .gap .wrap .right-box #nav>ul> li > a:hover { color:rgba(0, 0, 0, 1); }
-#wrap #header .container .gap .wrap .right-box #nav>ul> li > a .main-menu-deco  {display:block;width:100%; height: 1px; border-radius: 1px; background:#000; position: absolute;bottom:22px;left:0;transform:scale(0,1 ); }
+#wrap #header .container .gap .wrap .right-box #nav>ul> li > a .main-menu-deco  {display:block;width:100%; height: 1px; border-radius: 1px; background:#000; position: absolute;bottom:30.556%;/*72/22px*/left:0;transform:scale(0,1); }
 #wrap #header .container .gap .wrap .right-box #nav>ul> li > a:hover .main-menu-deco  { transform:scale(1,1 );}
 #wrap #header .container .gap .wrap .right-box #nav>ul> li > a.addDeco .main-menu-deco  { transform:scale(1,1 );}
 #wrap #header .container .gap .wrap .right-box #nav>ul> li > a.addDeco {  color:rgba(0, 0, 0, 1); }
@@ -106,8 +128,8 @@
 #wrap #main #section1 .container .gap .wrap {width:100%;height:100%;}
 /* slide wrap */
 #wrap #main #section1 .container .gap .wrap .slide-container {position: relative;width:100%;}
-#wrap #main #section1 .container .gap .wrap .slide-container .slide-view {position: relative;width:100%; overflow: hidden;}
-#wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap {position: relative;width:500%;display: flex; margin-left:-100%; }
+#wrap #main #section1 .container .gap .wrap .slide-container .slide-view {z-index:2;position: relative;width:100%; overflow: hidden;}
+#wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap { position: relative;width:500%;display: flex; margin-left:-100%; }
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap:hover {cursor:url(../img/icon-move-light.png),move;}
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide{width:100%; height: 100vh;/*창높이*/display: flex;}
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide .title-box{color:#fff;text-align: center; margin:auto;width:100%;-moz-user-select: none;/*모질라*/-ms-user-select: none;/*마이크로소프트*/-webkit-user-select: none;/*크롬 사파리*/user-select: none;/*슬라이드 넘길때 타이틀 태그안됌*/}/*벤더프리픽스*/
@@ -139,17 +161,25 @@
 #wrap #main #section2 .container .gap .wrap .content ul {display: flex; flex-flow: nowrap;}
 #wrap #main #section2 .container .gap .wrap .content ul li {width:33.333%;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap {padding:0 15px;}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box {}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap {width:100%;background-color: #fff;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box {width:100%;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box img {width:100%;}
 
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content h4 {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content p {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span {}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span a {}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box {width:100%;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap {padding: 45px;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content {width:100%; text-align: center;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content h4 {font:600 14px/1 'Montserrat';color:#232323;margin:0 0 12px 0;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content p {font:400 14px/1 'Roboto'; line-height: 170%;color:#6f6f6f;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span {display: block; padding: 25px 0 0 0;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span a {display:inline-block; height:39px; line-height:34px;text-align:center; font-family:'Montserrat'; font-weight: 600; font-size: 12px; color:#232323; border: 2px solid #232323; border-radius: 19.5px; padding: 0 40px; text-transform: uppercase;transition: all .3s;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span a:hover {background:#232323; color:#fff; }
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span a i { font-size: 16px; color: #939393; margin:-2px 0 0 10px; transition: all .3s;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap .text-content span a:hover i { color:#fff;animation:sec2Arrow .3s ease-in-out;  }
+@keyframes sec2Arrow{
+    0%   { color: #fff; opacity: 0;}
+    30%  { color: #fff; opacity: 0;}
+    100% { color: #fff; opacity: 1;}
+}
 
 
 

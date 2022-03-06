@@ -3,6 +3,7 @@
 
     const Agency = {
         init:function(){//메소드 (함수)
+            this.parallax();
             this.header();
             this.section1();
             this.section2();
@@ -15,6 +16,42 @@
             this.section9();
             this.section10();
             this.footer();
+         },
+         parallax:function(){
+            //패럴럭스 스크롤 이벤트
+            let newScroll = $(window).scrollTop();
+            let oldScroll = newScroll;
+            let result    = (oldScroll-newScroll) > 0 ? 'UP' : 'DOWN';
+               
+            // 모든것은 스크롤 이벤트가 발생이 되어야 한다.
+              $(window).scroll(function(){
+              
+               scrollEvent();
+               
+              });
+            function scrollEvent(){
+                  newScroll = $(window).scrollTop();                
+                  result    = (oldScroll-newScroll) > 0 ? 'UP' : 'DOWN';
+                  if(result=='UP'){  //위로 헤더 보이기
+                     if($(window).scrollTop()==0 ){ //맨위이면
+                        $('#header').removeClass('addParalaxDown60');
+                        $('#header').removeClass('addParalaxUp');
+                        $('#header').addClass('addParalaxDown72');
+                     }  
+                     else{ //그렇지 않으면
+                        $('#header').removeClass('addParalaxUp');
+                        $('#header').removeClass('addParalaxDown72');
+                        $('#header').addClass('addParalaxDown60');
+                     }
+                  }
+                  if(result=='DOWN'){ //아래로 헤더 감추기
+                     $('#header').removeClass('addParalaxDown72');
+                     $('#header').removeClass('addParalaxDown60');
+                     $('#header').addClass('addParalaxUp');
+                  }
+                  oldScroll = newScroll; 
+               }
+
          },
          header:function(){
             const container = $('#header .container');
@@ -92,7 +129,7 @@
             //3.자동타이머 함수
             function autoTimer(){
                setId = setInterval(nextCount, 3000);  //함수호출하고 3초 후에 실행
-               console.log('setId', setId);
+               //console.log('setId', setId);
             }
 
             autoTimer();
@@ -120,7 +157,7 @@
               
                },// mouseup 끝
                mousemove: function(event){//마우스무브
-                  console.log(event);
+                  //console.log(event);
                   // 반드시 마우스를 다운한 상태가 아니면 종료(리턴)시켜라
                   // if(mouseDown !== true){
                   // if(mouseDown == null){초기값을 null 지정해야한다.
