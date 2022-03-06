@@ -18,42 +18,79 @@
             this.footer();
          },
          parallax:function(){
-            // 스크롤 이벤트
-            // 현재스크롤값(newScroll) newScr
-            // 이전스크롤값(oldScroll) oldScr            
-            // 방향을 판단
-            let newScr = $(window).scrollTop(); // 위에 배치
-            let oldScr = newScr;                // 아래에 배치
-            let result = '';
+   
+
+            // 객체화 : 패럴럭스의 모든 섹션에서 발생되는 변수 충돌 피하기 위해서 
+            const scrollEvent = {
+               init: function(){
+                  this.header();
+                  this.section2();
+               },
+               header : function(){
+                     // 스크롤 이벤트
+                     // 현재스크롤값(newScroll) newScr
+                     // 이전스크롤값(oldScroll) oldScr            
+                     // 방향을 판단
+                     let newScr = $(window).scrollTop(); // 위에 배치
+                     let oldScr = newScr;                // 아래에 배치
+                     let result = '';
 
 
-            $(window).scroll(function(){
-               newScr = $(window).scrollTop();
-               //스크롤 값 비교
-               console.log('newScr :'+ newScr, 'oldScr:' + oldScr);
+                     $(window).scroll(function(){
+                        newScr = $(window).scrollTop();
+                        //스크롤 값 비교
+                        //console.log('newScr :'+ newScr, 'oldScr:' + oldScr);
+                        
+                        result = (newScr-oldScr) > 0 ? "DOWN":"UP";  //내려가면 DOWN 리턴, 올라가면 UP 리턴
+                        //console.log( result );
+                        if(result=="DOWN"){
+                           //console.log('스크롤이 아래로 내려가고 있다 헤더영역을 위로 올려서 숨겨라!');
+                           $('#header').addClass('addParallaxUp');
+                           $('#header').removeClass('addParallaxDown72');
+                           $('#header').removeClass('addParallaxDown60');
+                        }
+                        if(result=="UP"){
+                           //console.log('스크롤이 위로 올라가고 있다  헤더영역을 아래로 내려서 보여라!');
+                           $('#header').removeClass('addParallaxUp');
+                           $('#header').removeClass('addParallaxDown72');
+                           $('#header').addClass('addParallaxDown60');
+
+                           if($(window).scrollTop()==0){ //top이 0일때 60에서 72로 늘어나라
+                              $('#header').removeClass('addParallaxDown60');
+                              $('#header').addClass('addParallaxDown72');
+                           }
+                        }
+                     
+                        oldScr = newScr; 
+                     });
+               },
+               section2: function(){
+                  const title  = $('#section2 .title');
+                  const liCol1 = $('#section2 li').eq(0);
+                  const liCol2 = $('#section2 li').eq(1);
+                  const liCol3 = $('#section2 li').eq(2);
+
+                     console.log('창높이:' , $(window).height());  // 맨위에서 타이틀 탑값까지의 간격 
+                     console.log(title.offset().top+$(window).height());  // 맨위에서 타이틀 탑값까지의 간격 
+                     console.log(liCol1.offset().top+$(window).height()); // 맨위에서 첫번째칸 탑값까지의 간격 
+                     console.log(liCol2.offset().top+$(window).height()); // 맨위에서 두번째칸 탑값까지의 간격 
+                     console.log(liCol3.offset().top+$(window).height()); // 맨위에서 세번째칸 탑값까지의 간격 
+
+                     $(window).scroll(function(){
+                        console.log( $(window).scrollTop() );
+                     });
+
+
+
+
+
+
+
+               }
                
-               result = (newScr-oldScr) > 0 ? "DOWN":"UP";  //내려가면 DOWN 리턴, 올라가면 UP 리턴
-               console.log( result );
-               if(result=="DOWN"){
-                  console.log('스크롤이 아래로 내려가고 있다 헤더영역을 위로 올려서 숨겨라!');
-                  $('#header').addClass('addParallaxUp');
-                  $('#header').removeClass('addParallaxDown72');
-                  $('#header').removeClass('addParallaxDown60');
-               }
-               if(result=="UP"){
-                  console.log('스크롤이 위로 올라가고 있다  헤더영역을 아래로 내려서 보여라!');
-                  $('#header').removeClass('addParallaxUp');
-                  $('#header').removeClass('addParallaxDown72');
-                  $('#header').addClass('addParallaxDown60');
-
-                  if($(window).scrollTop()==0){ //top이 0일때 60에서 72로 늘어나라
-                     $('#header').removeClass('addParallaxDown60');
-                     $('#header').addClass('addParallaxDown72');
-                  }
-               }
-              
-               oldScr = newScr; 
-            });
+            }
+            
+            scrollEvent.init();
 
          },
          header:function(){

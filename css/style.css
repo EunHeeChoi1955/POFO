@@ -157,7 +157,7 @@
 #wrap #main #section2 .container .gap .wrap .title h3{font-size: 25px;color: #232323; font-weight: 300; font-family:'Roboto'; line-height: 120%;}
 #wrap #main #section2 .container .gap .wrap .title h3 strong{ font-weight: 400; vertical-align: baseline;}
 /* section2 content */
-#wrap #main #section2 .container .gap .wrap .content {}
+#wrap #main #section2 .container .gap .wrap .content {width:100%;}
 #wrap #main #section2 .container .gap .wrap .content ul {display: flex; flex-flow: nowrap;}
 #wrap #main #section2 .container .gap .wrap .content ul li {width:33.333%;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap {padding:0 15px;}
@@ -180,6 +180,16 @@
     30%  { color: #fff; opacity: 0;}
     100% { color: #fff; opacity: 1;}
 }
+
+/* 섹션2 패럴럭스 애니메이션 */
+#wrap #main #section2 .container .gap .wrap .title {}
+#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(1) { }
+#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(2) { }
+#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(3) { }
+
+
+
+
 
 
 
