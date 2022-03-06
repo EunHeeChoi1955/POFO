@@ -9,21 +9,21 @@
 #wrap #header {z-index:3;position:fixed;top:0;left:0;width:100%;height:72px;background:rgba(255,255,255, 1); transition: all .6s; box-shadow: 0 2px 5px rgba(0,0,0, .15);}
 /* 패럴럭스 이벤트 */
 /* 1. 윈도우 스크롤값이 아래로 내려가면 헤더 영역이 위로 부드럽게 미끄러지듯이 숨겨지고  */
-#wrap #header.addParalaxUp { animation:headerParalaxUp .6s ease-in-out forwards;   }
-@keyframes headerParalaxUp {
+#wrap #header.addParallaxUp { animation:headerParallaxUp .6s ease-in-out forwards;   }
+@keyframes headerParallaxUp {
     0%   { transform:translateY(0); }
     100% { transform:translateY(-80px); }
 }
 /* 2. 윈도우 스크롤값이 위로 올라가면 헤더 영역이 아래로 부드럽게 미끄러지듯이 나타난다  */
 /* 2-1. 스크롤탑값이 맨위에는 헤더영역 높이가 72px */
-#wrap #header.addParalaxDown72 { animation:headerParalaxDown72 .5s ease-in-out forwards;   }
-@keyframes headerParalaxDown72 {
-    0%   { transform:translateY(-80px); height: 72px; } 
-    100% { transform:translateY(0); height: 72px; }
+#wrap #header.addParallaxDown72 { animation:headerParallaxDown72 .3s ease-in-out forwards;   }
+@keyframes headerParallaxDown72 {
+    0%   {  height: 60px; } /* 맨위로 부딪히면 60 -> 72로 살짝 늘어남*/
+    100% {  height: 72px; }
 }
 /* 2-2. 스크롤탑값이 맨위가 아니면 헤더영역 높이가 60px */
-#wrap #header.addParalaxDown60 { animation:headerParalaxDown60 .5s ease-in-out forwards;   }
-@keyframes headerParalaxDown60 {
+#wrap #header.addParallaxDown60 { animation:headerParallaxDown60 .5s ease-in-out forwards;   }
+@keyframes headerParallaxDown60 {
     0%   { transform:translateY(-70px); height: 60px;}
     100% { transform:translateY(0);height: 60px; }
 }

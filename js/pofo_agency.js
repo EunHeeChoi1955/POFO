@@ -18,39 +18,42 @@
             this.footer();
          },
          parallax:function(){
-            //패럴럭스 스크롤 이벤트
-            let newScroll = $(window).scrollTop();
-            let oldScroll = newScroll;
-            let result    = (oldScroll-newScroll) > 0 ? 'UP' : 'DOWN';
+            // 스크롤 이벤트
+            // 현재스크롤값(newScroll) newScr
+            // 이전스크롤값(oldScroll) oldScr            
+            // 방향을 판단
+            let newScr = $(window).scrollTop(); // 위에 배치
+            let oldScr = newScr;                // 아래에 배치
+            let result = '';
+
+
+            $(window).scroll(function(){
+               newScr = $(window).scrollTop();
+               //스크롤 값 비교
+               console.log('newScr :'+ newScr, 'oldScr:' + oldScr);
                
-            // 모든것은 스크롤 이벤트가 발생이 되어야 한다.
-              $(window).scroll(function(){
-              
-               scrollEvent();
-               
-              });
-            function scrollEvent(){
-                  newScroll = $(window).scrollTop();                
-                  result    = (oldScroll-newScroll) > 0 ? 'UP' : 'DOWN';
-                  if(result=='UP'){  //위로 헤더 보이기
-                     if($(window).scrollTop()==0 ){ //맨위이면
-                        $('#header').removeClass('addParalaxDown60');
-                        $('#header').removeClass('addParalaxUp');
-                        $('#header').addClass('addParalaxDown72');
-                     }  
-                     else{ //그렇지 않으면
-                        $('#header').removeClass('addParalaxUp');
-                        $('#header').removeClass('addParalaxDown72');
-                        $('#header').addClass('addParalaxDown60');
-                     }
-                  }
-                  if(result=='DOWN'){ //아래로 헤더 감추기
-                     $('#header').removeClass('addParalaxDown72');
-                     $('#header').removeClass('addParalaxDown60');
-                     $('#header').addClass('addParalaxUp');
-                  }
-                  oldScroll = newScroll; 
+               result = (newScr-oldScr) > 0 ? "DOWN":"UP";  //내려가면 DOWN 리턴, 올라가면 UP 리턴
+               console.log( result );
+               if(result=="DOWN"){
+                  console.log('스크롤이 아래로 내려가고 있다 헤더영역을 위로 올려서 숨겨라!');
+                  $('#header').addClass('addParallaxUp');
+                  $('#header').removeClass('addParallaxDown72');
+                  $('#header').removeClass('addParallaxDown60');
                }
+               if(result=="UP"){
+                  console.log('스크롤이 위로 올라가고 있다  헤더영역을 아래로 내려서 보여라!');
+                  $('#header').removeClass('addParallaxUp');
+                  $('#header').removeClass('addParallaxDown72');
+                  $('#header').addClass('addParallaxDown60');
+
+                  if($(window).scrollTop()==0){ //top이 0일때 60에서 72로 늘어나라
+                     $('#header').removeClass('addParallaxDown60');
+                     $('#header').addClass('addParallaxDown72');
+                  }
+               }
+              
+               oldScr = newScr; 
+            });
 
          },
          header:function(){
