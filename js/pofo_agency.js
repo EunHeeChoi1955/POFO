@@ -65,23 +65,33 @@
                      });
                },
                section2: function(){
-                  const title  = $('#section2 .title');
-                  const liCol1 = $('#section2 li').eq(0);
-                  const liCol2 = $('#section2 li').eq(1);
-                  const liCol3 = $('#section2 li').eq(2);
+                 
+                  // 타이틀 누구.title 맨위에서 타이틀까지 간격(offset().top) 스크롤 탑값 .scrollTop 구하기
+                  // console.log( '$(\'.title\').offset().top :', $('#section2 .title').offset().top );
+                  // console.log( '$(window).height() :', $('#section2 .title').offset().top - $(window).height() );
+                  // 타이틀 탑값 위치를 창높이 만큼 빼주고 미리 애니메이션이 수행 되도록 계산
 
-                     console.log('창높이:' , $(window).height());  // 맨위에서 타이틀 탑값까지의 간격 
-                     console.log(title.offset().top+$(window).height());  // 맨위에서 타이틀 탑값까지의 간격 
-                     console.log(liCol1.offset().top+$(window).height()); // 맨위에서 첫번째칸 탑값까지의 간격 
-                     console.log(liCol2.offset().top+$(window).height()); // 맨위에서 두번째칸 탑값까지의 간격 
-                     console.log(liCol3.offset().top+$(window).height()); // 맨위에서 세번째칸 탑값까지의 간격 
+                  const titT = $('#section2 .title').offset().top;
+                  let winH = $(window).height();
+                  let titTop = titT - winH; // 윈도우의 스크롤 탑값이 여기에 도달하면(if ~ then) 애니메이션 구현 
+                  
+                  // 윈도우.스크롤 이벤트  scroll(); 메서드 : 스크롤 값이 발생이 되어야 구현된다.
+                  $(window).scroll(function(){
+                     //console.log('$(window).scrollTop():',$(window).scrollTop());
+                     if( $(window).scrollTop() >= titTop ){  //스크롤탑값이 130px 이상이면 구현해라 애니메이션을  addClass
+                        //섹션2 선택자에 클래스를 추가해라 addClass #section2 .addParallax
+                        $('#section2').addClass('addParallax');
 
-                     $(window).scroll(function(){
-                        console.log( $(window).scrollTop() );
-                     });
+                     }
+                     if( $(window).scrollTop() == 0 ){  // 맨위 스크롤 탑값이 0이면 추가된 클래스 삭제
+                        //섹션2 선택자에 클래스를 추가해라 addClass #section2 .addParallax
+                        $('#section2').removeClass('addParallax'); //초기화 되서 스크롤 넘기면 반복적으로 됌
+
+                     }
 
 
 
+                  }); 
 
 
 
@@ -281,34 +291,34 @@
 
          },
          section2:function(){ //패럴럭스- 마우스 스크롤링 이벤트 애니메이션
-            console.log('section2메소드()');
+            
          },
          section3:function(){
-            console.log('section3메소드()');
+           
          },
          section4:function(){
-            console.log('section4메소드()');
+            
          },
          section5:function(){
-            console.log('section5메소드()');
+           
          },
          section6:function(){
-            console.log('section6메소드()');
+           
          },
          section7:function(){
-            console.log('section7메소드()');
+           
          },
          section8:function(){
-            console.log('section8메소드()');
+            
          },
          section9:function(){
-            console.log('section9메소드()');
+           
          },
          section10:function(){
-            console.log('section10메소드()');
+           
          },
          footer:function(){
-            console.log('footer메소드()');
+            
          }
 
     };    // 객체

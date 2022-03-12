@@ -29,6 +29,8 @@
 }
 
 
+
+
 #wrap #header .container {position:relative;width:100%;max-width:1170px;height:100%;margin:0 auto;}
 #wrap #header .container .gap {margin:0 15px;width:auto;height:100%;}
 #wrap #header .container .gap .wrap {width:100%;height:100%; display: flex; flex-flow:row nowrap;}
@@ -56,7 +58,8 @@
 #wrap #header .container .gap .wrap .right-box #nav > ul > li:nth-child(4){ position: relative; }
 
 /* 서브메뉴 공통*/
-#wrap #header .container .gap .wrap .right-box #nav > ul > li .sub {display:none;position: absolute; top:72px; left:0;width:100%; background: #212121;}
+#wrap #header .container .gap .wrap .right-box #nav > ul > li .sub {display:none;position: absolute; top:72px; left:0;width:100%; background: #212121;transition:all .3s ease-in-out;}
+#wrap #header.addParallaxDown60 .container .gap .wrap .right-box #nav > ul > li .sub {top:60px;}
 #wrap #header .container .gap .wrap .right-box #nav > ul > li .sub > ul{display: flex;flex-flow: row nowrap;padding:50px;}
 #wrap #header .container .gap .wrap .right-box #nav > ul > li .sub > ul > li{ width:25%; border-right:1px solid rgba(255, 255, 255, 0.05);padding-left: 40px;}
 #wrap #header .container .gap .wrap .right-box #nav > ul > li .sub > ul > li:first-child{ padding-left: 0;}
@@ -131,7 +134,7 @@
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view {z-index:2;position: relative;width:100%; overflow: hidden;}
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap { position: relative;width:500%;display: flex; margin-left:-100%; }
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap:hover {cursor:url(../img/icon-move-light.png),move;}
-#wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide{width:100%; height: 100vh;/*창높이*/display: flex;}
+#wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide{width:100%; height: 100vh;/*창높이*/display: flex; filter:brightness(1), grayscale(.1); }
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide .title-box{color:#fff;text-align: center; margin:auto;width:100%;-moz-user-select: none;/*모질라*/-ms-user-select: none;/*마이크로소프트*/-webkit-user-select: none;/*크롬 사파리*/user-select: none;/*슬라이드 넘길때 타이틀 태그안됌*/}/*벤더프리픽스*/
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide .title-box .title h2{font-family:'Roboto'; line-height: 100%; font-size:18px; font-weight:300;}
 #wrap #main #section1 .container .gap .wrap .slide-container .slide-view .slide-wrap .slide .title-box .title h3{font-family:'Montserrat';font-size:70px; font-weight:700;padding: 30px 0 35px 0;}
@@ -147,7 +150,7 @@
 
 
 /* section2 */
-#wrap #main #section2 {width:100%;padding:130px 0;background:#f7f7f7;}
+#wrap #main #section2 {width:100%;padding:130px 0;background:#f7f7f7;overflow: hidden;}
 #wrap #main #section2 .container {width:100%;max-width:1170px;margin:0 auto;}
 #wrap #main #section2 .container .gap {width:100%;margin:0;}
 #wrap #main #section2 .container .gap .wrap {width:100%;}
@@ -163,7 +166,8 @@
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap {padding:0 15px;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap {width:100%;background-color: #fff;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box {width:100%;}
-#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box img {width:100%;}
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box img {width:100%; filter:grayscale(0);transition: all .4s ease-in-out; cursor: pointer; }
+#wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .img-box img:hover {filter:grayscale(.7);}
 
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box {width:100%;}
 #wrap #main #section2 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box .text-gap {padding: 45px;}
@@ -181,13 +185,32 @@
     100% { color: #fff; opacity: 1;}
 }
 
-/* 섹션2 패럴럭스 애니메이션 */
-#wrap #main #section2 .container .gap .wrap .title {}
-#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(1) { }
-#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(2) { }
-#wrap #main #section2 .container .gap .wrap .content ul li:nth-child(3) { }
+/* 섹션2 패럴럭스 애니메이션 addParallax */
+#wrap #main #section2.addParallax .container .gap .wrap .title {animation:sec2Ani1 1s ease-in-out forwards;}/*forwards : 마지막 수행된거 끝내라*/
+#wrap #main #section2.addParallax .container .gap .wrap .content ul li:nth-child(1) {animation:sec2Ani2 1.2s ease-in-out forwards; }
+#wrap #main #section2.addParallax .container .gap .wrap .content ul li:nth-child(2) {animation:sec2Ani3 1.4s ease-in-out forwards; }
+#wrap #main #section2.addParallax .container .gap .wrap .content ul li:nth-child(3) {animation:sec2Ani4 1.6s ease-in-out forwards; }
+
+@keyframes sec2Ani1 {
+      0% { transform:translateY(50px);opacity:0; }
+    100% { transform:translateY(   0);opacity:1; }
+}
 
 
+@keyframes sec2Ani2 {
+    0% { transform:translateY(1000px);opacity:0; }
+  100% { transform:translateY(     0);opacity:1; }
+}
+
+@keyframes sec2Ani3 {
+    0% { transform:translateY(1000px);opacity:0; }
+  100% { transform:translateY(     0);opacity:1; }
+}
+
+@keyframes sec2Ani4 {
+    0% { transform:translateY(1000px);opacity:0; }
+  100% { transform:translateY(     0);opacity:1; }
+}
 
 
 
@@ -199,7 +222,26 @@
 #wrap #main #section3 .container .gap {width:100%;margin:0;}
 #wrap #main #section3 .container .gap .wrap {width:100%;}
 
-
+/* section3 title */
+#wrap #main #section3 .container .gap .wrap .title {text-align: center; padding: 0 15px 70px 15px ;}
+#wrap #main #section3 .container .gap .wrap .title h2{font-size: 12px;color: #939393; font-weight: 500; font-family:'Montserrat';padding: 0 0 10px 0;}
+#wrap #main #section3 .container .gap .wrap .title h3{font-size: 32px;color: #fff; font-weight: 600; font-family:'Montserrat'; line-height: 120%;}
+#wrap #main #section3 .container .gap .wrap .title h3 strong{ font-weight: 400; vertical-align: baseline;}
+/* section2 content */
+#wrap #main #section3 .container .gap .wrap .content {width:100%;}
+#wrap #main #section3 .container .gap .wrap .content ul {display: flex; flex-flow:row nowrap;}
+#wrap #main #section3 .container .gap .wrap .content ul li {width:25%; }
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap {padding:0 15px;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap { position:relative; width:100%;background-color: #fff; text-align: center; padding: 31px 31px 55px 31px; }
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap::after {content: ''; display: block;left:0; z-index:1;position:absolute; bottom:0; width: 100%; height:.8%; background:#ff214f; transition: all .2s ease-in-out;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap:hover::after { height:100%; background:#2f2f2f; }
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box {z-index:2;position:relative; }
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box h4 {margin: 25px 0;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box h4 i {color: #ff214f; font-size: 50px;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box h5 {color:#232323; font-family: 'Montserrat'; font-weight: 600; font-size:14px ; padding-bottom: 15px;transition: all .2s ease-in-out;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap:hover .text-box h5 {color:#fff;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap .text-box p {color:#6f6f6f; font-family: 'Roboto';  font-size:14px ; line-height: 180%;transition: all .2s ease-in-out;}
+#wrap #main #section3 .container .gap .wrap .content ul li .colum-gap .colum-wrap:hover .text-box p {color:#fff;}
 
 /* section4 */
 #wrap #main #section4 {width:100%;background:#fff;}
