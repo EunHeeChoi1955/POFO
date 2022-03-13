@@ -330,8 +330,16 @@
             let no = 0; // 초기값 값이바뀌는 변수
 
             //each() 메서드 버튼 6개 배열처리 반복문으로 구현한다.
+            // $('.gallery-btn').each(function(index){   //기본값이 자동으로 찍힘
+            //    $('.gallery-btn').eq(index).on({
+            //       click: function(){
+            //          no=index;   //0 1 2 3 4 5 클릭한 번호 저장
+            //          gallery();
+            //       }
+            //    });
+            // });
             $('.gallery-btn').each(function(index){   //기본값이 자동으로 찍힘
-               $('.gallery-btn').eq(index).on({
+               $(this).eq(index).on({
                   click: function(){
                      no=index;   //0 1 2 3 4 5 클릭한 번호 저장
                      gallery();
@@ -339,6 +347,9 @@
                });
             });
 
+
+
+            
             // 속성(변수)==멤버변수==필드(프로퍼티스 properties): 값(value 밸류)
             // 속성에 펑션 function이 붙으면 : 메서드라고말한다..
             // 함수function(메소드 method)는
