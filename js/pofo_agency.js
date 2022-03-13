@@ -327,30 +327,45 @@
            
          },
          section4:function(){
-            // 갤러리 이벤트
-            // 1 번째 버튼 클릭 이벤트
-            // hide: 
-            // show: 20(0)  23 22(2)  21  24  16  19(7)   26
-            $('.gallery-btn').eq(0).on({
-               click: function(){
+            let no = 0; // 초기값 값이바뀌는 변수
+
+            //each() 메서드 버튼 6개 배열처리 반복문으로 구현한다.
+            $('.gallery-btn').each(function(index){   //기본값이 자동으로 찍힘
+               $('.gallery-btn').eq(index).on({
+                  click: function(){
+                     no=index;   //0 1 2 3 4 5 클릭한 번호 저장
+                     gallery();
+                  }
+               });
+            });
+
+            // 속성(변수)==멤버변수==필드(프로퍼티스 properties): 값(value 밸류)
+            // 속성에 펑션 function이 붙으면 : 메서드라고말한다..
+            // 함수function(메소드 method)는
+            // 명령어의 집합(프로그램)을 한번에 호출 실행하는 그룹(명령어의 수많은 묶음).
+            function gallery(){
+               //초기화
+               $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)}, 0 );
+               $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)}, 0 );
+               $('.gallery li').eq(2).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)}, 0 );
+               $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)}, 0 );
+               $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)}, 0 );
+               $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*1)}, 0 );
+               $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*2)}, 0 );
+               $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*3)}, 0 );
+               
+               if(no==0){  // 버튼0
                   $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)}, 300 );
                   $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)}, 300 );
                   $('.gallery li').eq(2).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)}, 300 );
                   $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)}, 300 );
+
                   $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)}, 300 );
                   $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*1)}, 300 );
                   $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*2)}, 300 );
                   $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*3)}, 300 );
-                  
                }
-            });
-            
-            // 2번째 버튼 클릭 이벤트 등록 
-            // BROCHURE   버튼2 
-            // hide: 20(0)  22(2) 19(7)
-            // show: 23  21  24  16  26
-            $('.gallery-btn').eq(1).on({
-               click: function(){
+               else if(no==1){   // 버튼1
                   $('.gallery li').eq(0).hide();
                   $('.gallery li').eq(2).hide();
                   $('.gallery li').eq(7).hide();
@@ -360,15 +375,8 @@
                   $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)}, 300 );
                   $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)}, 300 );
                   $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)}, 300 );
-                  
                }
-            });
-            // 3번째 버튼 클릭 이벤트 등록 
-            // BRANDING   버튼3 
-            // hide: 21(3) 19(7)
-            // show: 23  22 24  16  26  20
-            $('.gallery-btn').eq(2).on({
-               click: function(){
+               else if(no==2){   // 버튼2
                   $('.gallery li').eq(3).hide();
                   $('.gallery li').eq(7).hide();
 
@@ -380,13 +388,7 @@
                   $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*1)},300 );
                   
                }
-            });
-            // 4번째 버튼 클릭 이벤트 등록 
-            // IDENTITY   버튼4 
-            // hide: 23(1)  21(3) 26(6)  19(7)
-            // show: 22  24  16 20
-            $('.gallery-btn').eq(3).on({
-               click: function(){
+               else if(no==3){   // 버튼3
                   $('.gallery li').eq(1).hide();
                   $('.gallery li').eq(3).hide();
                   $('.gallery li').eq(6).hide();
@@ -397,16 +399,8 @@
                   $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );
                   $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)},300 );
                   $('.gallery li').eq(8).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)},300 );
-                  
                }
-            });
-            // 5번째 버튼 클릭 이벤트 등록 
-            // WEB   버튼5 
-            // hide: 23(1) 22(2) 21(3)  24(4) 16(5) 26(6)
-            // show:  20(0)   19(7)
-            $('.gallery-btn').eq(4).on({
-               click: function(){
-
+               else if(no==4){   // 버튼4
                   $('.gallery li').eq(1).hide();
                   $('.gallery li').eq(2).hide();
                   $('.gallery li').eq(3).hide();
@@ -415,18 +409,9 @@
                   $('.gallery li').eq(6).hide();
                   
                   $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
-                  $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );                  
-                  
+                  $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );   
                }
-            });
-            // 6번째 버튼 클릭 이벤트 등록 
-            // PHOTOGRAPHY   버튼6 
-            // hide: 20(0)  22(2)  24(4)  16(5)  19(7) 
-            // show: 23(1)  21(3)   26(6)
-            $('.gallery-btn').eq(5).on({
-               click: function(){
-
-                 
+               else if(no==5){   // 버튼5
                   $('.gallery li').eq(0).hide();
                   $('.gallery li').eq(2).hide();
                   $('.gallery li').eq(4).hide();
@@ -435,10 +420,13 @@
                   
                   $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
                   $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );
-                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );                  
-                  
+                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );       
                }
-            });
+               
+            }
+
+
+
          },
          section5:function(){
            
