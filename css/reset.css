@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; style에 이미 해서 import 시켰기때문에 여기선 필요없음 */
 * {margin:0;padding:0;vertical-align:middle;box-sizing:border-box;/* 패딩과테두리(보더)포함된너비높이설정 */}
 /* body {font:글자굵기   글자크기/줄간격비율   '글꼴1', '글꼴2';} */
 body {font:normal  14px/1  'Roboto', 'Montserrat';color:#232323;background:#fff;}

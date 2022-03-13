@@ -327,7 +327,118 @@
            
          },
          section4:function(){
+            // 갤러리 이벤트
+            // 1 번째 버튼 클릭 이벤트
+            // hide: 
+            // show: 20(0)  23 22(2)  21  24  16  19(7)   26
+            $('.gallery-btn').eq(0).on({
+               click: function(){
+                  $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)}, 300 );
+                  $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)}, 300 );
+                  $('.gallery li').eq(2).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)}, 300 );
+                  $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)}, 300 );
+                  $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)}, 300 );
+                  $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*1)}, 300 );
+                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*2)}, 300 );
+                  $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*3)}, 300 );
+                  
+               }
+            });
             
+            // 2번째 버튼 클릭 이벤트 등록 
+            // BROCHURE   버튼2 
+            // hide: 20(0)  22(2) 19(7)
+            // show: 23  21  24  16  26
+            $('.gallery-btn').eq(1).on({
+               click: function(){
+                  $('.gallery li').eq(0).hide();
+                  $('.gallery li').eq(2).hide();
+                  $('.gallery li').eq(7).hide();
+
+                  $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)}, 300 );
+                  $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)}, 300 );
+                  $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)}, 300 );
+                  $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)}, 300 );
+                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)}, 300 );
+                  
+               }
+            });
+            // 3번째 버튼 클릭 이벤트 등록 
+            // BRANDING   버튼3 
+            // hide: 21(3) 19(7)
+            // show: 23  22 24  16  26  20
+            $('.gallery-btn').eq(2).on({
+               click: function(){
+                  $('.gallery li').eq(3).hide();
+                  $('.gallery li').eq(7).hide();
+
+                  $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
+                  $('.gallery li').eq(2).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );
+                  $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );
+                  $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)},300 );
+                  $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)},300 );
+                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*1)},300 );
+                  
+               }
+            });
+            // 4번째 버튼 클릭 이벤트 등록 
+            // IDENTITY   버튼4 
+            // hide: 23(1)  21(3) 26(6)  19(7)
+            // show: 22  24  16 20
+            $('.gallery-btn').eq(3).on({
+               click: function(){
+                  $('.gallery li').eq(1).hide();
+                  $('.gallery li').eq(3).hide();
+                  $('.gallery li').eq(6).hide();
+                  $('.gallery li').eq(7).hide();
+
+                  $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
+                  $('.gallery li').eq(2).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );
+                  $('.gallery li').eq(4).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );
+                  $('.gallery li').eq(5).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*3)},300 );
+                  $('.gallery li').eq(8).show().animate( {top:(1903/4*0.8125*1), left:(1903/4*0)},300 );
+                  
+               }
+            });
+            // 5번째 버튼 클릭 이벤트 등록 
+            // WEB   버튼5 
+            // hide: 23(1) 22(2) 21(3)  24(4) 16(5) 26(6)
+            // show:  20(0)   19(7)
+            $('.gallery-btn').eq(4).on({
+               click: function(){
+
+                  $('.gallery li').eq(1).hide();
+                  $('.gallery li').eq(2).hide();
+                  $('.gallery li').eq(3).hide();
+                  $('.gallery li').eq(4).hide();
+                  $('.gallery li').eq(5).hide();
+                  $('.gallery li').eq(6).hide();
+                  
+                  $('.gallery li').eq(0).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
+                  $('.gallery li').eq(7).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );                  
+                  
+               }
+            });
+            // 6번째 버튼 클릭 이벤트 등록 
+            // PHOTOGRAPHY   버튼6 
+            // hide: 20(0)  22(2)  24(4)  16(5)  19(7) 
+            // show: 23(1)  21(3)   26(6)
+            $('.gallery-btn').eq(5).on({
+               click: function(){
+
+                 
+                  $('.gallery li').eq(0).hide();
+                  $('.gallery li').eq(2).hide();
+                  $('.gallery li').eq(4).hide();
+                  $('.gallery li').eq(5).hide();
+                  $('.gallery li').eq(7).hide();
+                  
+                  $('.gallery li').eq(1).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*0)},300 );
+                  $('.gallery li').eq(3).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*1)},300 );
+                  $('.gallery li').eq(6).show().animate( {top:(1903/4*0.8125*0), left:(1903/4*2)},300 );                  
+                  
+               }
+            });
          },
          section5:function(){
            

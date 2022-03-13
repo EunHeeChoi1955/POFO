@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('./fonts.css');
+@import url('./reset.css');
 
 #skip {z-index:2;position:fixed;top:0;left:0;width:100%;}
 #skip li {width:100%;}
@@ -279,7 +281,30 @@
   
 
 
+/* CSS프로그래밍  sass(scss)전처리기 
+preprocessor 중첩, 변수, 조건문, 반복문, 함수호출, 매개변수. 계산,  가능함  
+nodejs, VS Code 컴파일링해줘야함 SCSS-> CSS로 변환 
 
+
+#wrap {
+  #main {
+    #section4 {
+      width:100%;
+      background:#fff;
+      .container {
+        width:100%;
+        .gap{
+          width:100%;
+          margin:0;
+          .wrap{
+
+          }
+        }
+      }
+    }
+  }
+}
+*/
 
 
 
@@ -288,6 +313,32 @@
 #wrap #main #section4 .container {width:100%;}
 #wrap #main #section4 .container .gap {width:100%;margin:0;}
 #wrap #main #section4 .container .gap .wrap {width:100%;}
+/* section4 title */
+#wrap #main #section4 .container .gap .wrap .title{ padding: 80px 0;  text-align: center;}
+#wrap #main #section4 .container .gap .wrap .title div {display: inline-block;  }
+#wrap #main #section4 .container .gap .wrap .title div ul{display: flex;  }
+#wrap #main #section4 .container .gap .wrap .title div ul li{ padding: 0 25px; }
+#wrap #main #section4 .container .gap .wrap .title div ul li a{display:block; padding-bottom:4px;font-family: 'Montserrat';font-weight: 600;text-transform: uppercase; font-size: 12px; color:#6f6f6f;border-bottom: 1px solid transparent; transform: all .1s;}
+#wrap #main #section4 .container .gap .wrap .title div ul li a:hover{border-bottom: 1px solid #232323; font-weight: 600;color:#232323;}
+/* section4 content gallery */
+#wrap #main #section4 .container .gap .wrap .content {width:100%; }
+#wrap #main #section4 .container .gap .wrap .content .gallery {position: relative;  width:100%; height:calc(1903px/4*0.8125*2); /* (1903px /4)*2 */} /*2줄로 바꿀때 display: flex; flex-flow: row wrap;*/
+#wrap #main #section4 .container .gap .wrap .content .gallery li {position:absolute; width:25%; height:calc(1903px/4*0.8125); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(1) { top:calc(1903px/4*0.8125*0); left: calc(1903px/4*0); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(2) { top:calc(1903px/4*0.8125*0); left: calc(1903px/4*1); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(3) { top:calc(1903px/4*0.8125*0); left: calc(1903px/4*2); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(4) { top:calc(1903px/4*0.8125*0); left: calc(1903px/4*3); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(5) { top:calc(1903px/4*0.8125*1); left: calc(1903px/4*0); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(6) { top:calc(1903px/4*0.8125*1); left: calc(1903px/4*1); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(7) { top:calc(1903px/4*0.8125*1); left: calc(1903px/4*2); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li:nth-child(8) { top:calc(1903px/4*0.8125*1); left: calc(1903px/4*3); }
+#wrap #main #section4 .container .gap .wrap .content .gallery li .img-wrap {width:100%; }
+#wrap #main #section4 .container .gap .wrap .content .gallery li .img-wrap a {display: block;width:100%; }/*a링크는 inline태그라 block을 써줘야 width100% 적용됨*/
+#wrap #main #section4 .container .gap .wrap .content .gallery li .img-wrap a img {width:100%;}
+
+
+
+
 
 
 
@@ -296,6 +347,7 @@
 #wrap #main #section5 .container {width:100%;max-width:1170px;margin:0 auto;}
 #wrap #main #section5 .container .gap {width:100%;margin:0;}
 #wrap #main #section5 .container .gap .wrap {width:100%;}
+
 
 
 
