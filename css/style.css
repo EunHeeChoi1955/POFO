@@ -338,15 +338,16 @@ nodejs, VS Code 컴파일링해줘야함 SCSS-> CSS로 변환
 #wrap #main #section4 .container .gap .wrap .content .gallery li .img-wrap a img {width:100%;}
 
 /* section4 패럴럭스 애니메이션 */
-#wrap #main #section4.addParallax .container .gap .wrap .title { animation:sec4Ani1 1.0s ease-in-out forwards; }
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(1) { animation:sec4Ani1 1.2s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(2) { animation:sec4Ani2 1.4s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(3) { animation:sec4Ani3 1.6s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(4) { animation:sec4Ani4 1.8s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(5) { animation:sec4Ani5 2.0s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(6) { animation:sec4Ani6 2.2s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(7) { animation:sec4Ani7 2.4s ease-in-out forwards;}
-#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(8) { animation:sec4Ani8 2.6s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .title { animation:sec4Ani1 1.2s ease-in-out forwards; }
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(1) { animation:sec4Ani2 1.4s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(2) { animation:sec4Ani3 1.6s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(3) { animation:sec4Ani4 1.8s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(4) { animation:sec4Ani5 2.0s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(5) { animation:sec4Ani6 2.2s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(6) { animation:sec4Ani7 2.4s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(7) { animation:sec4Ani8 2.6s ease-in-out forwards;}
+#wrap #main #section4.addParallax .container .gap .wrap .content .gallery li:nth-child(8) { animation:sec4Ani9 2.8s ease-in-out forwards;}
+
 
 @keyframes sec4Ani1 {
   0%  {transform: translateY(200px); opacity:0;}
