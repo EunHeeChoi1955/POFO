@@ -26,6 +26,7 @@
                   this.header();
                   this.section2();
                   this.section3();
+                  this.section4();
                },
                header : function(){
                      // 스크롤 이벤트
@@ -116,6 +117,35 @@
                      if( $(window).scrollTop() == 0 ){  // 맨위 스크롤 탑값이 0이면 추가된 클래스 삭제
                         //섹션3 선택자에 클래스를 추가해라 addClass #section3 .addParallax
                         $('#section3').removeClass('addParallax'); //초기화 되서 스크롤 넘기면 반복적으로 됌
+
+                     }
+
+
+
+                  }); 
+
+
+
+
+               },
+               section4: function(){
+                 
+                  const section4 = $('#section4');
+                  const titT = $('#section4 .title').offset().top;
+                  let winH = $(window).height();
+                  let titTop = titT - winH; // 윈도우의 스크롤 탑값이 여기에 도달하면(if ~ then) 애니메이션 구현 
+                  
+                  // 윈도우.스크롤 이벤트  scroll(); 메서드 : 스크롤 값이 발생이 되어야 구현된다.
+                  $(window).scroll(function(){
+                     //console.log('$(window).scrollTop():',$(window).scrollTop());
+                     if( $(window).scrollTop() >= titTop ){  //스크롤탑값이 130px 이상이면 구현해라 애니메이션을  addClass
+                        //섹션3 선택자에 클래스를 추가해라 addClass #section3 .addParallax
+                        section4.addClass('addParallax');
+
+                     }
+                     if( $(window).scrollTop() == 0 ){  // 맨위 스크롤 탑값이 0이면 추가된 클래스 삭제
+                        //섹션3 선택자에 클래스를 추가해라 addClass #section3 .addParallax
+                        section4.removeClass('addParallax'); //초기화 되서 스크롤 넘기면 반복적으로 됌
 
                      }
 
