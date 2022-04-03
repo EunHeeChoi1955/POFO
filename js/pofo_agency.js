@@ -369,7 +369,7 @@
             //    });
             // });
             $('.gallery-btn').each(function(index){   //기본값이 자동으로 찍힘
-               $(this).eq(index).on({
+               $(this).on({
                   click: function(){
                      no=index;   //0 1 2 3 4 5 클릭한 번호 저장
                      gallery();
