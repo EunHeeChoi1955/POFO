@@ -470,7 +470,31 @@
 
          },
          section5:function(){
-           
+            //svg 애니메잉션 선택자 
+            const circleAni = $('.circleAni');
+            let   objLength = [];  //4개의 길이를 각각 저장 
+            let   per       = [ .9 , .75 , .9 , .65 ];  //4개의 길이를 각각 저장 
+
+
+
+            // 개체(Object) 배열 반열 처리
+            $.each(circleAni, function(idx, obj){
+               // 서클 원형의 전체 길이를 산출
+               objLength[idx] = obj.getTotalLength();
+               //console.log( `objLength[${idx}] : ${objLength[idx]} ` ); // 값은 461.0681457519531 
+               obj.style.strokeDasharray  =  objLength[idx];
+               ojb.style.strokeDashOffset =  objLength[idx];
+
+               //내일 배열처리
+               //백분율 계산처리
+               //반복문 처리 애니메이션
+               //시간을 이용 애니메이션 제작
+
+
+
+
+            });
+
          },
          section6:function(){
            

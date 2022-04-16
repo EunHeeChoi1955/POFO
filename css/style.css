@@ -309,7 +309,7 @@ nodejs, VS Code 컴파일링해줘야함 SCSS-> CSS로 변환
 
 
 /* section4 */
-#wrap #main #section4 {width:100%;background:#fff;}
+#wrap #main #section4 {width:100%;background:#fff; overflow: hidden;}
 #wrap #main #section4 .container {width:100%;}
 #wrap #main #section4 .container .gap {width:100%;margin:0;}
 #wrap #main #section4 .container .gap .wrap {width:100%;}
@@ -404,6 +404,28 @@ nodejs, VS Code 컴파일링해줘야함 SCSS-> CSS로 변환
 #wrap #main #section5 .container {width:100%;max-width:1170px;margin:0 auto;}
 #wrap #main #section5 .container .gap {width:100%;margin:0;}
 #wrap #main #section5 .container .gap .wrap {width:100%;}
+#wrap #main #section5 .container .gap .wrap .content {width:100%;}
+#wrap #main #section5 .container .gap .wrap .content .svg-box {width:100%; display: flex;}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li {width:25%; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap { margin:0 15px; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap {width:150px; height: 150px; position: relative; margin: 0 auto; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg { position: relative;transform: rotate(-90deg);}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg.svgbg { position:relative; z-index:2;}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg.svgfg { position:absolute; z-index:3; top:0; left: 0;}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .number { z-index:1; position: absolute;left:0; top:50%; margin-top:-10px ;text-align: center; font-size: 20px;  width:100%; color: #232323; font-weight: 700;}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap  h2 {text-align: center; padding-top: 20px; font-weight:500; font-size:11px;color: #6f6f6f;  font-family: 'Montserrat';}
+
+/* svg circle 4개의 길이를 백분율로 표현 먼저 js 에서 concsole값 가져와서 stroke-dasharray에 넣기 */
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle1{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.1);}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle2{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.25);}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle3{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.1);}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle4{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.38);}
+
+
+
+
+
+
 
 
 
