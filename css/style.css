@@ -416,17 +416,40 @@ nodejs, VS Code 컴파일링해줘야함 SCSS-> CSS로 변환
 #wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap  h2 {text-align: center; padding-top: 20px; font-weight:500; font-size:11px;color: #6f6f6f;  font-family: 'Montserrat';}
 
 /* svg circle 4개의 길이를 백분율로 표현 먼저 js 에서 concsole값 가져와서 stroke-dasharray에 넣기 */
-#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle1{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.1);}
-#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle2{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.25);}
-#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle3{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.1);}
-#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle4{stroke-dasharray:461.0681457519531; stroke-dashoffset:clac(461.0681457519531*.38);}
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circleAni {stroke-dasharray:461.0681457519531px; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle1 { animation: sec5Circle1 3.5s ease-in-out forwards; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle2 { animation: sec5Circle2 3.5s ease-in-out forwards; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle3 { animation: sec5Circle3 3.5s ease-in-out forwards; }
+#wrap #main #section5 .container .gap .wrap .content .svg-box li .svg-gap .svg-wrap .svg .circle4 { animation: sec5Circle4 3.5s ease-in-out forwards; }
 
+/* 애니메이션 구현 */
+@keyframes sec5Circle1 {
+  0%    {stroke-dashoffset:calc(461.0681457519531px*1);}
+  80%   {stroke-dashoffset:calc(461.0681457519531px*.1);}
+  90%   {stroke-dashoffset:calc(461.0681457519531px*.2);}
+  100%  {stroke-dashoffset:calc(461.0681457519531px*.1);}
+}
 
+@keyframes sec5Circle2 {
+  0%    {stroke-dashoffset:calc(461.0681457519531px*1);}  
+  80%   {stroke-dashoffset:calc(461.0681457519531px*.1);}
+  90%   {stroke-dashoffset:calc(461.0681457519531px*.3);}
+  100%  {stroke-dashoffset:calc(461.0681457519531px*.28);}
+}
 
+@keyframes sec5Circle3 {
+  0%    {stroke-dashoffset:calc(461.0681457519531px*1);}  
+  80%   {stroke-dashoffset:calc(461.0681457519531px*.1);}
+  90%   {stroke-dashoffset:calc(461.0681457519531px*.2);}
+  100%  {stroke-dashoffset:calc(461.0681457519531px*.1);}
+}
 
-
-
-
+@keyframes sec5Circle4 {
+  0%    {stroke-dashoffset:calc(461.0681457519531px*1);}  
+  80%   {stroke-dashoffset:calc(461.0681457519531px*.1);}
+  90%   {stroke-dashoffset:calc(461.0681457519531px*.4);}
+  100%  {stroke-dashoffset:calc(461.0681457519531px*.38);}
+}
 
 
 

@@ -470,30 +470,146 @@
 
          },
          section5:function(){
-            //svg 애니메잉션 선택자 
+            // svg 애니메잉션 선택자 
             const circleAni = $('.circleAni');
             let   objLength = [];  //4개의 길이를 각각 저장 
             let   per       = [ .9 , .75 , .9 , .65 ];  //4개의 길이를 각각 저장 
 
 
 
-            // 개체(Object) 배열 반열 처리
+            
+            //개체(Object) 배열 반열 처리
             $.each(circleAni, function(idx, obj){
-               // 서클 원형의 전체 길이를 산출
+               //서클원형의 전체 길이를 산출
                objLength[idx] = obj.getTotalLength();
-               //console.log( `objLength[${idx}] : ${objLength[idx]} ` ); // 값은 461.0681457519531 
-               obj.style.strokeDasharray  =  objLength[idx];
-               ojb.style.strokeDashOffset =  objLength[idx];
+               //console.log(`objLength[${idx}] : ${objLength[idx]}`);
+               // obj.style.strokeDasharray = objLength[idx];
+               // obj.style.strokeDashoffset = objLength[idx];
 
-               //내일 배열처리
+               //내일 배열처리 
                //백분율 계산처리
                //반복문 처리 애니메이션
                //시간을 이용 애니메이션 제작
 
+           });
 
 
 
-            });
+            // 카운트
+            // 3초간 자동증가
+            let cnt   = [0,0,0,0];
+            let setId = [null,null,null,null];
+            let time  = [33.3333,40.0000,33.3333,48.3871];
+            let num   = [90,75,90,62];
+
+            function countfn(n){
+               cnt[n]++;
+               
+               if(cnt[n]>num[n]){
+                  clearInterval(setId[n]);
+               }
+               else{
+                  $('.number').eq(n).html(`<i>${cnt[n]}%<i>`);
+               }
+            }
+            for(let i=0; i<4; i++){
+               setId[i] = setInterval( function(){
+                  countfn(i);
+               }, time[i] );
+            }
+
+            
+
+
+
+            // setId[0] = setInterval( function(){
+            //    countfn(0);
+            // }, time[0] );
+
+            // setId[1] = setInterval( function(){
+            //    countfn(1);
+            // }, time[1] );
+
+            // setId[2] = setInterval( function(){
+            //    countfn(2);
+            // }, time[2] );
+
+            // setId[3] = setInterval( function(){
+            //    countfn(3);
+            // }, time[3] );
+
+
+
+
+
+
+
+
+
+
+
+               // function countfn1(){
+               //    cnt[0]++;
+                  
+               //    if(cnt[0]>90){
+               //       clearInterval(setId[0]);
+               //    }
+               //    else{
+               //       $('.number').eq(1).text(`${cnt[0]}%`);
+               //    }
+               // }
+
+               // setId[0] = setInterval( countfn1, 35 );
+
+
+
+               // function countfn2(){
+               //    cnt[1]++;
+                 
+               //    if(cnt[1]>85){
+               //       clearInterval(setId[1]);
+               //    }
+               //    else{
+               //       $('.number').eq(2).text(`${cnt[1]}%`);
+               //    }
+               // }
+
+               // setId[1] = setInterval( countfn2, 35 );
+
+
+
+
+               // function countfn3(){
+               //    cnt[2]++;
+                 
+               //    if(cnt[2]>90){
+               //       clearInterval(setId[2]);
+               //    }
+               //    else{
+               //       $('.number').eq(3).text(`${cnt[2]}%`);
+               //    }
+               // }
+
+               // setId[2] = setInterval( countfn3, 35 );
+
+
+
+
+
+               // function countfn4(){
+               //    cnt[3]++;
+                
+               //    if(cnt[3]>75){
+               //       clearInterval(setId[3]);
+               //    }
+               //    else{
+               //       $('.number').eq(4).text(`${cnt[3]}%`);
+               //    }
+               // }
+               // setId[3] = setInterval( countfn4, 35 );
+
+
+
 
          },
          section6:function(){
