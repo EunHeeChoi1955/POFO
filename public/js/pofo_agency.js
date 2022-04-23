@@ -73,7 +73,7 @@
                   // console.log( '$(window).height() :', $('#section2 .title').offset().top - $(window).height() );
                   // 타이틀 탑값 위치를 창높이 만큼 빼주고 미리 애니메이션이 수행 되도록 계산
 
-                  const titT = $('#section2 .title').offset().top;
+                  let titT = $('#section2 .title').offset().top;
                   let winH = $(window).height();
                   let titTop = titT - winH; // 윈도우의 스크롤 탑값이 여기에 도달하면(if ~ then) 애니메이션 구현 
                   
@@ -497,6 +497,32 @@
 
             // 카운트
             // 3초간 자동증가
+            // 카운트함수가 거꾸로 내려가는것
+            // let cnt   = [90,75,90,62];
+            // let setId = [null,null,null,null];
+            // let time  = [33.3333,40.0000,33.3333,48.3871];
+            // let num   = [0,0,0,0];
+            // function countfn(n){
+            //    cnt[n]--;
+               
+            //    if(cnt[n]<num[n]){
+            //       clearInterval(setId[n]);
+            //    }
+            //    else{
+            //       $('.number').eq(n).html(`<i>${cnt[n]}:${cnt[n]}:${cnt[n]}<i>`);
+            //    }
+            // }
+            // for(let i=0; i<4; i++){
+            //    setId[i] = setInterval( function(){
+            //       countfn(i);
+            //    }, time[i] );
+            // }
+
+            
+
+
+            // 카운트
+            // 3초간 자동증가
             let cnt   = [0,0,0,0];
             let setId = [null,null,null,null];
             let time  = [33.3333,40.0000,33.3333,48.3871];
@@ -517,9 +543,6 @@
                   countfn(i);
                }, time[i] );
             }
-
-            
-
 
 
             // setId[0] = setInterval( function(){
